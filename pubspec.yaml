@@ -30,7 +30,7 @@ dependencies:
   image: any
   go_router: ^14.6.2
   ffi: any
-  camera: ^0.11.0+2
+  camera_android_camerax: 0.6.10+1
   google_mlkit_barcode_scanning: ^0.13.0
   flutter_lorem: ^2.0.0
   oktoast: any

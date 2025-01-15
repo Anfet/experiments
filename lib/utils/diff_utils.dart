@@ -40,9 +40,10 @@ class DiffUtil<T> {
     var actual = List.of(current);
     var index = 0;
     var oldIndex = 0;
+
     while (index < current.length) {
       var item = actual[index];
-      if (index >= old.length) {
+      if (previous.isEmpty || index >= old.length) {
         result.add(DiffUtilAction.add(index, item));
         index++;
         continue;

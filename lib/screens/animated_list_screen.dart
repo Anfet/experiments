@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:experiments/app/animated_listview_ex/animated_list_ex.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -12,7 +14,7 @@ class AnimatedListScreen extends StatefulWidget {
   State<AnimatedListScreen> createState() => _AnimatedListScreenState();
 }
 
-class _AnimatedListScreenState extends State<AnimatedListScreen> {
+class _AnimatedListScreenState extends State<AnimatedListScreen> with MountedCheck {
   List<String> items = [];
 
   @override
@@ -64,6 +66,7 @@ class _AnimatedListScreenState extends State<AnimatedListScreen> {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 12.0),
               child: Row(
+                spacing: 12,
                 mainAxisSize: MainAxisSize.max,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -73,7 +76,12 @@ class _AnimatedListScreenState extends State<AnimatedListScreen> {
                       child: Text('add'),
                     ),
                   ),
-                  HSpacer(12),
+                  Expanded(
+                    child: ElevatedButton(
+                      onPressed: removeRandom,
+                      child: Text('remove'),
+                    ),
+                  ),
                   Expanded(
                     child: ElevatedButton(
                       onPressed: removeAll,
@@ -96,25 +104,35 @@ class _AnimatedListScreenState extends State<AnimatedListScreen> {
       position: Tween<Offset>(begin: Offset(text.hashCode.isEven ? -1 : 1, 0), end: Offset(0, 0)).animate(animation),
       child: Container(
         color: Color(0xff000000 + item.hashCode).withOpacity(.15),
-        child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 12, vertical: 8),
-          child: Text(text, style: textStyle),
-        ),
+        padding: EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+        child: Text(text, style: textStyle),
       ),
     );
   }
 
   Future<void> addElements() async {
-    var newItems = List.generate(randomizer.nextInt(2) + 5, (index) => lorem(paragraphs: 1, words: randomizer.nextInt(50))).reversed;
+    var newItems = List.generate(randomizer.nextInt(2) + 5, (index) => lorem(paragraphs: 1, words: max(2, randomizer.nextInt(10)))).reversed;
+    if (items.isEmpty) {
+      items.addAll(newItems);
+    } else {
+      for (var item in newItems) {
+        items.insert(random.nextInt(items.length), item);
+      }
+    }
 
-    setState(() {
-      items.insertAll(0, newItems);
-    });
+    markNeedsRebuild();
   }
 
   Future<void> removeAll() async {
-    setState(() {
-      items = [];
-    });
+    items = [];
+    markNeedsRebuild();
+  }
+
+  void removeRandom() {
+    var removeCount = max(items.length / 5, 1);
+    for (var i = 0; i < removeCount; i++) {
+      items.removeAt(random.nextInt(items.length));
+    }
+    markNeedsRebuild();
   }
 }

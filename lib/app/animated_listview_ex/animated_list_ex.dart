@@ -50,11 +50,11 @@ class AnimatedListEx<T> extends StatefulWidget {
 
 class _AnimatedListExState<T> extends State<AnimatedListEx<T>> {
   final GlobalKey<AnimatedListState> _listKey = GlobalKey();
-  late List<T> items;
+  late List<T> items = [];
 
   @override
   void initState() {
-    items = widget.items;
+    doDiff([], widget.items);
     super.initState();
   }
 
