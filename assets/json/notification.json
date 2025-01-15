@@ -1,0 +1,27 @@
+{
+  "notification": {
+    "title": "Заголовок",
+    "body": "детальное сообщение"
+  },
+  "data": {
+    "payload": {
+    }
+  },
+  "to": "token кому",
+  "priority": "high",
+  "android": {
+    "priority": "high"
+  },
+  "apns": {
+    "payload": {
+      "aps": {
+        "contentAvailable": "true"
+      }
+    },
+    "headers": {
+      "apns-push-type": "background",
+      "apns-priority": "5",
+      "apns-topic": "io.flutter.plugins.firebase.messaging"
+    }
+  }
+}

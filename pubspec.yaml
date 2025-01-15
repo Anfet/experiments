@@ -1,0 +1,85 @@
+name: experiments
+description: A new Flutter project.
+version: 1.0.0+1
+publish_to: none
+
+environment:
+  sdk: ">=3.5.0 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.8
+  flutter_svg: ^2.0.16
+  logger: ^2.5.0
+  sprintf: ^7.0.0
+  uuid: ^4.5.1
+  provider: ^6.1.2
+  flutter_bloc: any
+  package_info_plus: any
+  device_info_plus: any
+  shared_preferences: ^2.3.5
+  json_annotation: any
+  path_provider: any
+  share_plus: any
+  url_launcher: ^6.3.1
+  permission_handler: ^11.3.1
+  open_file: ^3.5.10
+  intl: any
+  image: any
+  go_router: ^14.6.2
+  ffi: any
+  camera: ^0.11.0+2
+  google_mlkit_barcode_scanning: ^0.13.0
+  flutter_lorem: ^2.0.0
+  oktoast: any
+
+  yuvimage:
+    path: "../yuvimage"
+
+  flutter_commons:
+    path: "../siberian_core"
+
+  flutter_di:
+    path: "../siberian_di"
+
+  flutter_intl:
+    path: "../siberian_intl"
+
+  win32: ^5.10.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^5.0.0
+  build_runner: ^2.4.14
+  source_gen: any
+  json_serializable: ^6.9.2
+
+  local_auth: any
+  window_manager: ^0.4.3
+
+flutter:
+
+  uses-material-design: true
+
+  assets:
+    - assets/
+    - assets/images/
+    - assets/large/
+    - assets/fonts/
+
+  fonts:
+    - family: Montserrat
+      fonts:
+        - asset: assets/fonts/Montserrat-Light.ttf
+        - asset: assets/fonts/Montserrat-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/Montserrat-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/Montserrat-SemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/Montserrat-Bold.ttf
+          weight: 700
