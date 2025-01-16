@@ -25,8 +25,6 @@ abstract class AppRouter {
 
   void toTestBloc();
 
-  void toBle();
-
   void to(String name);
 
   Future push(String path);

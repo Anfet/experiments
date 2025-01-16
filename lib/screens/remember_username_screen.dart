@@ -12,13 +12,12 @@ class RememberUsernameScreen extends StatefulWidget {
   State<RememberUsernameScreen> createState() => _RememberUsernameScreenState();
 }
 
-class _RememberUsernameScreenState extends State<RememberUsernameScreen> with WidgetsBindingObserver   {
+class _RememberUsernameScreenState extends State<RememberUsernameScreen> with WidgetsBindingObserver {
   final FocusNode usernameNode = FocusNode();
   final FocusNode passwordNode = FocusNode();
   final LocalAuthentication auth = LocalAuthentication();
   final TextEditingController userController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
-
 
   AppLifecycleState state = AppLifecycleState.resumed;
 
@@ -37,13 +36,15 @@ class _RememberUsernameScreenState extends State<RememberUsernameScreen> with Wi
     passwordNode.addListener(() async {
       if (state == AppLifecycleState.inactive) {
         passwordNode.requestFocus();
-      };
+      }
+      ;
     });
 
     usernameNode.addListener(() async {
       if (state == AppLifecycleState.inactive) {
         usernameNode.requestFocus();
-      };
+      }
+      ;
     });
   }
 
@@ -69,10 +70,13 @@ class _RememberUsernameScreenState extends State<RememberUsernameScreen> with Wi
               mainAxisSize: MainAxisSize.max,
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                CupertinoTextField(
+                TextField(
                   focusNode: usernameNode,
                   keyboardType: TextInputType.text,
-                  autofillHints: [AutofillHints.username],
+                  autofillHints: const [
+                    AutofillHints.username,
+                    AutofillHints.email,
+                  ],
                   controller: userController,
                   // decoration: InputDecoration(
                   //   // border: OutlineInputBorder(),
@@ -81,20 +85,21 @@ class _RememberUsernameScreenState extends State<RememberUsernameScreen> with Wi
                   onSubmitted: (value) {},
                 ),
                 VSpacer(12),
-                CupertinoTextField(
+                TextField(
                   focusNode: passwordNode,
                   controller: passwordController,
                   keyboardType: TextInputType.visiblePassword,
                   obscureText: false,
-                  autofillHints: [AutofillHints.password],
+                  autofillHints: const [
+                    AutofillHints.password,
+                  ],
                   // decoration: InputDecoration(
                   //   border: OutlineInputBorder(),
-                    // hintText: 'password',
+                  // hintText: 'password',
                   // ),
                   onSubmitted: (value) {},
                 ),
                 Spacer(),
-
                 ElevatedButton(
                   onPressed: () {
                     bioLogin();
@@ -104,7 +109,6 @@ class _RememberUsernameScreenState extends State<RememberUsernameScreen> with Wi
                 VSpacer(24),
                 ElevatedButton(
                   onPressed: () {
-
                     TextInput.finishAutofillContext();
                   },
                   child: Text('Save'),
@@ -146,5 +150,4 @@ class _RememberUsernameScreenState extends State<RememberUsernameScreen> with Wi
       return false;
     }
   }
-
 }

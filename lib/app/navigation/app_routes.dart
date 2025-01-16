@@ -8,7 +8,7 @@ import 'package:experiments/screens/login_flow/auth/profile_screen.dart';
 import 'package:experiments/screens/login_flow/sms/sms_bottom_sheet.dart';
 import 'package:experiments/screens/login_flow/unauth/login_screen.dart';
 import 'package:experiments/screens/login_flow/unauth/registration_screen.dart';
-import 'package:experiments/screens/main_screen.dart';
+import 'package:experiments/screens/main/main_screen.dart';
 import 'package:experiments/screens/remember_username_screen.dart';
 import 'package:experiments/screens/swap_card_screen.dart';
 import 'package:experiments/screens/indexed_scroll_screen.dart';
