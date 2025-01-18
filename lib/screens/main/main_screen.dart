@@ -10,7 +10,7 @@ class ScreenA extends StatefulWidget {
 }
 
 class _ScreenAState extends State<ScreenA> with MountedCheck {
-  AppearingController _appearingController = AppearingController();
+
 
   @override
   Widget build(BuildContext context) {
@@ -18,74 +18,93 @@ class _ScreenAState extends State<ScreenA> with MountedCheck {
       backgroundColor: Colors.white,
       appBar: AppBar(
         actions: [
-          IconButton(onPressed: () => _appearingController.restartAnimation(), icon: Icon(Icons.refresh)),
+          IconButton(onPressed: markNeedsRebuild, icon: Icon(Icons.refresh)),
         ],
       ),
-      body: SlidingWidget(
-        orientation: SlidingOrientation.topToBottom,
-        duration: 1500.milliseconds,
-        builder: (context, child, animation) {
-          return Opacity(opacity: animation.value, child: child);
-        },
-        child: SingleChildScrollView(
-          padding: const EdgeInsets.symmetric(horizontal: 32.0, vertical: 8),
-          child: Column(
-            spacing: 12,
-            mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              ElevatedButton(
+      body: Column(
+        key: UniqueKey(),
+        spacing: 12,
+        mainAxisSize: MainAxisSize.max,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          VSpacer(8),
+          SlidingWidget(
+            duration: 500.milliseconds,
+            orientation: SlidingOrientation.topToBottom,
+            child: Padding(
+              padding: EdgeInsets.symmetric(horizontal: 32),
+              child: ElevatedButton(
                 onPressed: () => router.to_2d_scroll(),
                 child: Center(
                   child: Text("To 2D scroll view"),
                 ),
               ),
-              ElevatedButton(
-                onPressed: () => router.to_indexed_scroll(),
-                child: Center(
-                  child: Text("To indexed scroll view"),
-                ),
+            ),
+          ),
+          ...[
+            ElevatedButton(
+              onPressed: () => router.to_indexed_scroll(),
+              child: Center(
+                child: Text("To indexed scroll view"),
               ),
-              ElevatedButton(
-                onPressed: () => router.to_2d_scroll(),
-                child: Center(
-                  child: Text("card swap view"),
-                ),
+            ),
+            ElevatedButton(
+              onPressed: () => router.to_2d_scroll(),
+              child: Center(
+                child: Text("card swap view"),
               ),
-              ElevatedButton(
-                onPressed: () => router.toAnimatedListScreen(),
-                child: Center(
-                  child: Text("animated list"),
-                ),
+            ),
+            ElevatedButton(
+              onPressed: () => router.toAnimatedListScreen(),
+              child: Center(
+                child: Text("animated list"),
               ),
-              ElevatedButton(
-                onPressed: () => router.toRememberPassword(),
-                child: Center(
-                  child: Text("remember password"),
-                ),
+            ),
+            ElevatedButton(
+              onPressed: () => router.toRememberPassword(),
+              child: Center(
+                child: Text("remember password"),
               ),
-              ElevatedButton(
-                onPressed: () => router.toTestBloc(),
-                child: Center(
-                  child: Text("test bloc"),
-                ),
+            ),
+            ElevatedButton(
+              onPressed: () => router.toTestBloc(),
+              child: Center(
+                child: Text("test bloc"),
               ),
-              ElevatedButton(
-                onPressed: () => router.toAppearing(),
-                child: Center(
-                  child: Text("appearting widget"),
-                ),
+            ),
+            ElevatedButton(
+              onPressed: () => router.toAppearing(),
+              child: Center(
+                child: Text("appearting widget"),
               ),
-              ElevatedButton(
+            ),
+          ].mapIndexed(
+            (i, e) => SlidingWidget(
+              duration: 1.seconds,
+              delay: (500 + i * 100).milliseconds,
+              orientation: [SlidingOrientation.leftToRight, SlidingOrientation.rightToLeft].randomElement,
+              child: Padding(
+                padding: EdgeInsets.symmetric(horizontal: 32),
+                child: e,
+              ),
+            ),
+          ),
+          Spacer(),
+          SlidingWidget(
+            orientation: SlidingOrientation.bottomToTop,
+            duration: 1.seconds,
+            delay: 1500.milliseconds,
+            child: Padding(
+              padding: EdgeInsets.symmetric(horizontal: 32, vertical: 8),
+              child: ElevatedButton(
                 onPressed: () => router.toAnimatedListItems(),
                 child: Center(
                   child: Text("animated list item width"),
                 ),
               ),
-            ],
+            ),
           ),
-        ),
+        ],
       ),
     );
   }

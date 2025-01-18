@@ -12,6 +12,7 @@ import 'package:experiments/screens/main/main_screen.dart';
 import 'package:experiments/screens/remember_username_screen.dart';
 import 'package:experiments/screens/swap_card_screen.dart';
 import 'package:experiments/screens/indexed_scroll_screen.dart';
+import 'package:experiments/screens/two_dimensional_scroll_screen.dart';
 import 'package:flutter/widgets.dart';
 import 'package:go_router/go_router.dart';
 import 'package:flutter_commons/flutter_commons.dart';
@@ -63,6 +64,12 @@ class AppRoutes {
         state: state,
         child: IndexedScrollScreen(),
       ),
+    ),
+    GoRoute(
+      path: screenB,
+      builder: (context, state) {
+        return TwoDimensionalScrollScreen();
+      },
     ),
     GoRoute(
       path: animatedListScreen,

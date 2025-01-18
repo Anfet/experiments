@@ -30,22 +30,26 @@ dependencies:
   image: any
   go_router: ^14.6.2
   ffi: any
-  camera_android_camerax: 0.6.10+1
-  google_mlkit_barcode_scanning: ^0.13.0
   flutter_lorem: ^2.0.0
   oktoast: any
 
-  yuvimage:
-    path: "../yuvimage"
 
   flutter_commons:
-    path: "../siberian_core"
+    git:
+      url: 'https://github.com/Anfet/flutter_commons.git'
+      ref: 'release/1.0.18'
 
   flutter_di:
-    path: "../siberian_di"
+    git:
+      url: 'https://github.com/Anfet/flutter_di.git'
+      ref: 'release/0.0.4'
 
-  flutter_intl:
-    path: "../siberian_intl"
+#  flutter_commons:
+#    path: "../siberian_core"
+
+#  flutter_di:
+#    path: "../siberian_di"
+
 
   win32: ^5.10.0
 
