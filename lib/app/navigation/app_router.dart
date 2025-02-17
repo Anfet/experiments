@@ -32,6 +32,8 @@ abstract class AppRouter {
   toAppearing();
 
   toAnimatedListItems();
+
+  toMkList();
 }
 
 class AppRouterImpl implements AppRouter {
@@ -84,6 +86,11 @@ class AppRouterImpl implements AppRouter {
   @override
   toAnimatedListItems() {
     return _router.push(AppRoutes.animatedListItems);
+  }
+
+  @override
+  toMkList() {
+    return _router.push(AppRoutes.mkScreen);
   }
 }
 

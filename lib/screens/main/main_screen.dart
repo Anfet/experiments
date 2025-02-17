@@ -10,8 +10,6 @@ class ScreenA extends StatefulWidget {
 }
 
 class _ScreenAState extends State<ScreenA> with MountedCheck {
-
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -76,6 +74,12 @@ class _ScreenAState extends State<ScreenA> with MountedCheck {
               onPressed: () => router.toAppearing(),
               child: Center(
                 child: Text("appearting widget"),
+              ),
+            ),
+            ElevatedButton(
+              onPressed: () => router.toMkList(),
+              child: Center(
+                child: Text("mk screen"),
               ),
             ),
           ].mapIndexed(

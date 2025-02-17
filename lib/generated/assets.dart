@@ -3,6 +3,24 @@ class Assets {
   Assets._();
 
   static const String appIcSoundwave = 'assets/images/app/ic_soundwave.svg';
+  static const String beginningFlag000 = 'assets/images/beginning/flag_000.webp';
+  static const String beginningFlag031 = 'assets/images/beginning/flag_031.webp';
+  static const String beginningFlag051 = 'assets/images/beginning/flag_051.webp';
+  static const String beginningFlag112 = 'assets/images/beginning/flag_112.webp';
+  static const String beginningFlag144 = 'assets/images/beginning/flag_144.webp';
+  static const String beginningFlag231 = 'assets/images/beginning/flag_231.webp';
+  static const String beginningFlag356 = 'assets/images/beginning/flag_356.webp';
+  static const String beginningFlag398 = 'assets/images/beginning/flag_398.webp';
+  static const String beginningFlag417 = 'assets/images/beginning/flag_417.webp';
+  static const String beginningFlag498 = 'assets/images/beginning/flag_498.webp';
+  static const String beginningFlag608 = 'assets/images/beginning/flag_608.webp';
+  static const String beginningFlag643 = 'assets/images/beginning/flag_643.webp';
+  static const String beginningFlag704 = 'assets/images/beginning/flag_704.webp';
+  static const String beginningFlag762 = 'assets/images/beginning/flag_762.webp';
+  static const String beginningFlag795 = 'assets/images/beginning/flag_795.webp';
+  static const String beginningFlag804 = 'assets/images/beginning/flag_804.webp';
+  static const String beginningFlag818 = 'assets/images/beginning/flag_818.webp';
+  static const String beginningFlag860 = 'assets/images/beginning/flag_860.webp';
   static const String fontsMontserratBold = 'assets/fonts/Montserrat-Bold.ttf';
   static const String fontsMontserratLight = 'assets/fonts/Montserrat-Light.ttf';
   static const String fontsMontserratMedium = 'assets/fonts/Montserrat-Medium.ttf';

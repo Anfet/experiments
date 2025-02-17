@@ -3,6 +3,7 @@ import 'package:experiments/screens/animated_list_screen.dart';
 import 'package:experiments/screens/bloc_test/test_bloc.dart';
 import 'package:experiments/screens/bloc_test/test_bloc_widget.dart';
 import 'package:experiments/screens/collapsible_widget_screen.dart';
+import 'package:experiments/screens/exp/list_screen.dart';
 import 'package:experiments/screens/login_flow/auth/auth_screen.dart';
 import 'package:experiments/screens/login_flow/auth/profile_screen.dart';
 import 'package:experiments/screens/login_flow/sms/sms_bottom_sheet.dart';
@@ -36,6 +37,8 @@ class AppRoutes {
   static final ble = "/ble";
   static final appearing = '/appearing';
   static final animatedListItems = '/animated_list_items';
+  static final mkScreen = '/mkScreen';
+
 
   static final List<RouteBase> screens = [
     GoRoute(
@@ -128,7 +131,14 @@ class AppRoutes {
       name: '/animated_list_items',
       builder: (context, state) => AnimatedListItems(),
     ),
+    GoRoute(
+      path: '/mkScreen',
+      name: '/mkScreen',
+      builder: (context, state) => ListScreen(),
+    ),
   ];
+
+
 
   static CustomTransitionPage buildPageWithDefaultTransition<T>({
     required BuildContext context,
