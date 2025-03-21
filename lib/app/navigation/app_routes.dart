@@ -1,9 +1,13 @@
 import 'package:experiments/screens/animated_list_items.dart';
 import 'package:experiments/screens/animated_list_screen.dart';
+import 'package:experiments/screens/animated_routing/animated_routing_screen.dart';
 import 'package:experiments/screens/bloc_test/test_bloc.dart';
 import 'package:experiments/screens/bloc_test/test_bloc_widget.dart';
 import 'package:experiments/screens/collapsible_widget_screen.dart';
 import 'package:experiments/screens/exp/list_screen.dart';
+import 'package:experiments/screens/hero_animation/hero_detail_screen.dart';
+import 'package:experiments/screens/hero_animation/hero_main_screen.dart';
+import 'package:experiments/screens/item_move/item_move_screen.dart';
 import 'package:experiments/screens/login_flow/auth/auth_screen.dart';
 import 'package:experiments/screens/login_flow/auth/profile_screen.dart';
 import 'package:experiments/screens/login_flow/sms/sms_bottom_sheet.dart';
@@ -14,6 +18,7 @@ import 'package:experiments/screens/remember_username_screen.dart';
 import 'package:experiments/screens/swap_card_screen.dart';
 import 'package:experiments/screens/indexed_scroll_screen.dart';
 import 'package:experiments/screens/two_dimensional_scroll_screen.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:go_router/go_router.dart';
 import 'package:flutter_commons/flutter_commons.dart';
@@ -38,7 +43,10 @@ class AppRoutes {
   static final appearing = '/appearing';
   static final animatedListItems = '/animated_list_items';
   static final mkScreen = '/mkScreen';
-
+  static final itemMove = '/item_move';
+  static final animatedRouting = '/animatedRouting';
+  static final heroMain = '/heroMain';
+  static final heroDetail = '/heroDetail';
 
   static final List<RouteBase> screens = [
     GoRoute(
@@ -136,9 +144,36 @@ class AppRoutes {
       name: '/mkScreen',
       builder: (context, state) => ListScreen(),
     ),
+    GoRoute(
+      path: itemMove,
+      name: itemMove,
+      builder: (context, state) => ItemMoveScreen(),
+    ),
+    GoRoute(
+      path: animatedRouting,
+      name: animatedRouting,
+      builder: (context, state) => AnimatedRoutingScreen(),
+    ),
+    GoRoute(
+      path: heroMain,
+      name: heroMain,
+      builder: (context, state) => HeroMainScreen(),
+    ),
+    GoRoute(
+      path: heroDetail,
+      name: heroDetail,
+      pageBuilder: (context, state) {
+        return CustomTransitionPage(
+          transitionDuration: Duration(milliseconds: 1000),
+          reverseTransitionDuration: Duration(milliseconds: 500),
+          child: HeroDetailScreen(asset: state.uri.queryParameters['asset']!),
+          transitionsBuilder: (context, animation, secondaryAnimation, child) {
+            return FadeTransition(opacity: animation, child: child);
+          },
+        );
+      },
+    ),
   ];
-
-
 
   static CustomTransitionPage buildPageWithDefaultTransition<T>({
     required BuildContext context,

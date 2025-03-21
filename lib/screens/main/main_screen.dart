@@ -19,23 +19,17 @@ class _ScreenAState extends State<ScreenA> with MountedCheck {
           IconButton(onPressed: markNeedsRebuild, icon: Icon(Icons.refresh)),
         ],
       ),
-      body: Column(
-        key: UniqueKey(),
-        spacing: 12,
-        mainAxisSize: MainAxisSize.max,
-        crossAxisAlignment: CrossAxisAlignment.center,
+      body: GridView(
+        padding: EdgeInsets.all(16),
+        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2, crossAxisSpacing: 8, mainAxisSpacing: 8),
         children: [
-          VSpacer(8),
           SlidingWidget(
             duration: 500.milliseconds,
             orientation: SlidingOrientation.topToBottom,
-            child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 32),
-              child: ElevatedButton(
-                onPressed: () => router.to_2d_scroll(),
-                child: Center(
-                  child: Text("To 2D scroll view"),
-                ),
+            child: ElevatedButton(
+              onPressed: () => router.to_2d_scroll(),
+              child: Center(
+                child: Text("To 2D scroll view"),
               ),
             ),
           ),
@@ -82,29 +76,40 @@ class _ScreenAState extends State<ScreenA> with MountedCheck {
                 child: Text("mk screen"),
               ),
             ),
+            ElevatedButton(
+              onPressed: () => router.toItemMove(),
+              child: Center(
+                child: Text("Item move"),
+              ),
+            ),
+            ElevatedButton(
+              onPressed: () => router.toAnimatedRouting(),
+              child: Center(
+                child: Text("Animated routing"),
+              ),
+            ),
+            ElevatedButton(
+              onPressed: () => router.toHeroMain(),
+              child: Center(
+                child: Text("Hero main"),
+              ),
+            ),
           ].mapIndexed(
             (i, e) => SlidingWidget(
               duration: 1.seconds,
-              delay: (500 + i * 100).milliseconds,
+              delay: 500.milliseconds,
               orientation: [SlidingOrientation.leftToRight, SlidingOrientation.rightToLeft].randomElement,
-              child: Padding(
-                padding: EdgeInsets.symmetric(horizontal: 32),
-                child: e,
-              ),
+              child: e,
             ),
           ),
-          Spacer(),
           SlidingWidget(
             orientation: SlidingOrientation.bottomToTop,
             duration: 1.seconds,
             delay: 1500.milliseconds,
-            child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 32, vertical: 8),
-              child: ElevatedButton(
-                onPressed: () => router.toAnimatedListItems(),
-                child: Center(
-                  child: Text("animated list item width"),
-                ),
+            child: ElevatedButton(
+              onPressed: () => router.toAnimatedListItems(),
+              child: Center(
+                child: Text("animated list item width", textAlign: TextAlign.center),
               ),
             ),
           ),

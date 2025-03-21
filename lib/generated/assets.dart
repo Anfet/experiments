@@ -27,6 +27,10 @@ class Assets {
   static const String fontsMontserratRegular = 'assets/fonts/Montserrat-Regular.ttf';
   static const String fontsMontserratSemiBold = 'assets/fonts/Montserrat-SemiBold.ttf';
   static const String fontsMontserratThin = 'assets/fonts/Montserrat-Thin.ttf';
+  static const String heroFood1 = 'assets/images/hero/food-1.jpg';
+  static const String heroFood2 = 'assets/images/hero/food-2.webp';
+  static const String heroFood3 = 'assets/images/hero/food-3.jpg';
+  static const String heroFood4 = 'assets/images/hero/food-4.jpg';
   static const String imagesBitmapMarkerSelected = 'assets/images/bitmap_marker_selected.png';
   static const String imagesBitmapMarkerUnselected = 'assets/images/bitmap_marker_unselected.png';
   static const String imagesIcAdd = 'assets/images/ic_add.svg';

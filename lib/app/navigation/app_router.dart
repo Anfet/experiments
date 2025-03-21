@@ -34,6 +34,14 @@ abstract class AppRouter {
   toAnimatedListItems();
 
   toMkList();
+
+  toItemMove();
+
+  toAnimatedRouting();
+
+  toHeroMain();
+
+  toHeroDetail({required String asset});
 }
 
 class AppRouterImpl implements AppRouter {
@@ -66,9 +74,6 @@ class AppRouterImpl implements AppRouter {
   }
 
   @override
-  void toBle() => _router.push(AppRoutes.ble);
-
-  @override
   void to(String name) {
     _router.go(name);
   }
@@ -91,6 +96,28 @@ class AppRouterImpl implements AppRouter {
   @override
   toMkList() {
     return _router.push(AppRoutes.mkScreen);
+  }
+
+  @override
+  toItemMove() {
+    return _router.push(AppRoutes.itemMove);
+  }
+
+  @override
+  toAnimatedRouting() {
+    return _router.push(AppRoutes.animatedRouting);
+  }
+
+  @override
+  toHeroDetail({required String asset}) {
+    return _router.pushNamed(AppRoutes.heroDetail, queryParameters: {
+      'asset': asset,
+    });
+  }
+
+  @override
+  toHeroMain() {
+    return _router.push(AppRoutes.heroMain);
   }
 }
 
