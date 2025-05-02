@@ -35,6 +35,12 @@ class _ScreenAState extends State<ScreenA> with MountedCheck {
           ),
           ...[
             ElevatedButton(
+              onPressed: () => router.toAnimatedRouting(),
+              child: Center(
+                child: Text("Animated routing"),
+              ),
+            ),
+            ElevatedButton(
               onPressed: () => router.to_indexed_scroll(),
               child: Center(
                 child: Text("To indexed scroll view"),
@@ -82,12 +88,7 @@ class _ScreenAState extends State<ScreenA> with MountedCheck {
                 child: Text("Item move"),
               ),
             ),
-            ElevatedButton(
-              onPressed: () => router.toAnimatedRouting(),
-              child: Center(
-                child: Text("Animated routing"),
-              ),
-            ),
+
             ElevatedButton(
               onPressed: () => router.toHeroMain(),
               child: Center(

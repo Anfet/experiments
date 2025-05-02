@@ -17,7 +17,7 @@ class AppStyles {
       borderRadius: BorderRadius.circular(8),
       borderSide: BorderSide(color: colors.lightText),
     );
-    return ThemeData.light(useMaterial3: false).copyWith(
+    return ThemeData.light(useMaterial3: true).copyWith(
       colorScheme: ColorScheme(
         brightness: Brightness.light,
         primary: colors.brandBlue,
@@ -94,6 +94,8 @@ class AppStyles {
         toolbarTextStyle: fonts.mainText.bold().copyWith(color: colors.headlines),
         actionsIconTheme: IconThemeData(color: colors.headlines, size: 24),
         iconTheme: IconThemeData(size: 24, color: colors.headlines),
+        shadowColor: Colors.transparent,
+        surfaceTintColor: Colors.transparent,
       ),
       splashColor: colors.brandBlue.withOpacity(.1),
       focusColor: colors.brandBlue.withOpacity(.1),
