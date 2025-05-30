@@ -4,31 +4,31 @@ version: 1.0.0+1
 publish_to: none
 
 environment:
-  sdk: ">=3.5.0 <4.0.0"
+  sdk: ">=3.8.0"
 
 dependencies:
   flutter:
     sdk: flutter
 
   cupertino_icons: ^1.0.8
-  flutter_svg: ^2.0.16
+  flutter_svg: ^2.1.0
   logger: ^2.5.0
   sprintf: ^7.0.0
   uuid: ^4.5.1
-  provider: ^6.1.2
+  provider: ^6.1.5
   flutter_bloc: any
   package_info_plus: any
   device_info_plus: any
-  shared_preferences: ^2.3.5
+  shared_preferences: ^2.5.3
   json_annotation: any
   path_provider: any
   share_plus: any
   url_launcher: ^6.3.1
-  permission_handler: ^11.3.1
+  permission_handler: ^12.0.0+1
   open_file: ^3.5.10
   intl: any
   image: any
-  go_router: ^14.6.2
+  go_router: ^15.1.2
   ffi: any
   flutter_lorem: ^2.0.0
   oktoast: any
@@ -51,7 +51,7 @@ dependencies:
 #    path: "../siberian_di"
 
 
-  win32: ^5.10.0
+  win32: ^5.13.0
 
   flutter_sequence_animation: ^4.0.0
 
@@ -60,9 +60,9 @@ dev_dependencies:
     sdk: flutter
 
   flutter_lints: ^5.0.0
-  build_runner: ^2.4.14
+  build_runner: ^2.4.15
   source_gen: any
-  json_serializable: ^6.9.2
+  json_serializable: ^6.9.5
 
   local_auth: any
   window_manager: ^0.4.3

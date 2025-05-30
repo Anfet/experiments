@@ -110,9 +110,12 @@ class AppRouterImpl implements AppRouter {
 
   @override
   toHeroDetail({required String asset}) {
-    return _router.pushNamed(AppRoutes.heroDetail, queryParameters: {
-      'asset': asset,
-    });
+    return _router.pushNamed(
+      AppRoutes.heroDetail,
+      queryParameters: {
+        'asset': asset,
+      },
+    );
   }
 
   @override

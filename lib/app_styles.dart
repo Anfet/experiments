@@ -32,7 +32,7 @@ class AppStyles {
         onSurface: colors.text,
       ),
       scaffoldBackgroundColor: colors.mainBg,
-      cardTheme: CardTheme(color: colors.mainBg),
+      cardTheme: CardThemeData(color: colors.mainBg),
       brightness: Brightness.light,
       cupertinoOverrideTheme: NoDefaultCupertinoThemeData(
         brightness: Brightness.light,
@@ -101,7 +101,7 @@ class AppStyles {
       focusColor: colors.brandBlue.withOpacity(.1),
       highlightColor: colors.brandBlue.withOpacity(.1),
       dialogBackgroundColor: colors.mainBg,
-      dialogTheme: DialogTheme(
+      dialogTheme: DialogThemeData(
         backgroundColor: colors.mainBg,
         elevation: 4,
         contentTextStyle: fonts.mainText.copyWith(color: colors.text),
